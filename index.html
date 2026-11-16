@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DJ Ngựa Chín Hồng Mao — Đặt show DJ cho concert, trường học, doanh nghiệp</title>
+  <meta name="description" content="DJ Ngựa Chín Hồng Mao chơi nhạc và khuấy động đám đông tại concert sinh viên, sự kiện trường học, team building doanh nghiệp và club. Liên hệ đặt show.">
+  <meta property="og:title" content="DJ Ngựa Chín Hồng Mao">
+  <meta property="og:description" content="Từ sân khấu concert đến sân trường và tiệc công ty — đặt show DJ.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/concert-stage-1600.webp">
+  <meta name="theme-color" content="#140C10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Be+Vietnam+Pro:wght@400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Bỏ qua tới nội dung chính</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="DJ Ngựa Chín Hồng Mao — về đầu trang">Ngựa Chín <span>Hồng Mao</span></a>
+    <nav aria-label="Điều hướng chính">
+      <ul>
+        <li><a href="#shows">Show</a></li>
+        <li><a href="#about">Về DJ</a></li>
+        <li><a href="#services">Dịch vụ</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#booking">Đặt show</a>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Video gốc "Hero visuals.mp4" đầy đủ 55,7 s · máy tính: 1920×1080 30fps · điện thoại: 1280×720 -->
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="auto"
+             poster="assets/img/hero-poster.webp" aria-hidden="true">
+        <source src="assets/hero-720.mp4" type="video/mp4" media="(max-width: 767px)">
+        <source src="assets/hero-1080.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">DJ <span class="dot" aria-hidden="true">·</span> <mark class="ph">[CẦN XÁC NHẬN thể loại nhạc]</mark></p>
+        <h1 id="hero-title" class="hero-title">Ngựa Chín<br><em>Hồng Mao</em></h1>
+        <p class="hero-lead">Từ sân khấu concert đến sân trường và tiệc công ty — chơi nhạc, cầm mic, kéo cả đám đông đứng dậy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">Đặt show</a>
+          <a class="btn btn-ghost" href="#shows">Xem các show</a>
+        </div>
+      </div>
+      <button class="video-toggle" id="videoToggle" type="button" aria-pressed="false">
+        <span class="vt-label">Tạm dừng video</span>
+      </button>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <figure class="about-cutout reveal">
+          <img src="assets/img/cutout-red.webp" width="924" height="692" loading="lazy"
+               alt="DJ mặc áo khoác varsity đỏ, cầm micro, đứng sau bàn DJ">
+        </figure>
+        <div class="about-text reveal">
+          <p class="eyebrow">Bờm đỏ</p>
+          <h2 id="about-title" class="h2">Một DJ, cả một đám đông</h2>
+          <p class="placeholder-block"><mark class="ph">[CẦN KHÁCH HÀNG XÁC NHẬN]</mark> Tiểu sử ngắn 2–3 câu: bắt đầu chơi nhạc từ khi nào, phong cách âm nhạc, điều làm nên một set của Ngựa Chín Hồng Mao.</p>
+          <ul class="stats" aria-label="Số liệu hoạt động">
+            <li><span class="stat-num"><mark class="ph">[?]</mark></span><span class="stat-label">Show đã diễn</span></li>
+            <li><span class="stat-num"><mark class="ph">[?]</mark></span><span class="stat-label">Khán giả lớn nhất</span></li>
+            <li><span class="stat-num">4</span><span class="stat-label">Loại sự kiện</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CROWD MOMENT -->
+    <section class="moment" aria-labelledby="moment-title">
+      <img class="moment-img" src="assets/img/concert-crowd-1600.webp"
+           srcset="assets/img/concert-crowd-800.webp 800w, assets/img/concert-crowd-1600.webp 1600w"
+           sizes="100vw" width="1600" height="1067" loading="lazy"
+           alt="Hàng trăm khán giả giơ cao gậy cổ vũ màu trắng trước sân khấu concert">
+      <div class="moment-shade" aria-hidden="true"></div>
+      <div class="container moment-text reveal">
+        <h2 id="moment-title" class="display">Đám đông là<br>nửa còn lại<br><em>của set nhạc</em></h2>
+      </div>
+    </section>
+
+    <!-- SHOWS BY TYPE -->
+    <section class="shows" id="shows" aria-labelledby="shows-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Show đã chơi</p>
+          <h2 id="shows-title" class="h2">Chọn kiểu sự kiện của bạn</h2>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Loại sự kiện" hidden>
+          <button role="tab" id="tab-concert" aria-controls="panel-concert" aria-selected="true">Concert</button>
+          <button role="tab" id="tab-school" aria-controls="panel-school" aria-selected="false" tabindex="-1">Trường học</button>
+          <button role="tab" id="tab-corp" aria-controls="panel-corp" aria-selected="false" tabindex="-1">Doanh nghiệp</button>
+          <button role="tab" id="tab-club" aria-controls="panel-club" aria-selected="false" tabindex="-1">Club &amp; ngoài trời</button>
+        </div>
+
+        <div class="panel" id="panel-concert" role="tabpanel" aria-labelledby="tab-concert">
+          <h3 class="panel-title">Concert sinh viên</h3>
+          <p class="panel-meta">Sân khấu lớn · LED · hàng trăm khán giả <mark class="ph">[CẦN XÁC NHẬN tên sự kiện được công khai]</mark></p>
+          <div class="gallery g-concert">
+            <figure class="g-a"><img src="assets/img/concert-stage-1600.webp" srcset="assets/img/concert-stage-800.webp 800w, assets/img/concert-stage-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo khoác đỏ cầm micro trước màn LED đỏ bùng nổ"></figure>
+            <figure class="g-b"><img src="assets/img/concert-arms-1600.webp" srcset="assets/img/concert-arms-800.webp 800w, assets/img/concert-arms-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ dang rộng hai tay trên sân khấu, phía sau là màn LED xoáy nhiều màu"></figure>
+            <figure class="g-c"><img src="assets/img/concert-selfie-1600.webp" srcset="assets/img/concert-selfie-800.webp 800w, assets/img/concert-selfie-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="907" loading="lazy" alt="DJ chụp cùng khán giả đang giơ gậy cổ vũ trong làn khói sân khấu"></figure>
+            <figure class="g-d"><img src="assets/img/concert-back-1600.webp" srcset="assets/img/concert-back-800.webp 800w, assets/img/concert-back-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="Nhìn từ phía sau DJ áo khoác đỏ hướng ra biển khán giả"></figure>
+          </div>
+        </div>
+
+        <div class="panel panel-light" id="panel-school" role="tabpanel" aria-labelledby="tab-school">
+          <h3 class="panel-title">Sự kiện trường học</h3>
+          <p class="panel-meta">Trung thu · tiệc hè · gala lớp <mark class="ph">[CẦN XÁC NHẬN tên trường được công khai]</mark></p>
+          <div class="gallery g-school">
+            <figure class="g-a"><img src="assets/img/school-gala-1600.webp" srcset="assets/img/school-gala-800.webp 800w, assets/img/school-gala-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo sơ mi họa tiết chỉ tay lên trời, cầm micro, bên cạnh biển đèn neon gala ngoài trời"></figure>
+            <figure class="g-b"><img src="assets/img/school-midautumn-1600.webp" srcset="assets/img/school-midautumn-800.webp 800w, assets/img/school-midautumn-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chơi nhạc trước phông nền Trung thu với đèn lồng và bánh trung thu"></figure>
+            <figure class="g-c"><img src="assets/img/school-summer-1600.webp" srcset="assets/img/school-summer-800.webp 800w, assets/img/school-summer-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo thun kem chỉ tay lên trời trước phông nền tiệc hè"></figure>
+            <figure class="g-d"><img src="assets/img/school-point-1600.webp" srcset="assets/img/school-point-800.webp 800w, assets/img/school-point-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1066" loading="lazy" alt="DJ đứng sau bàn DJ Pioneer, giơ tay, phía sau là phông nền mùa hè nhiều màu"></figure>
+          </div>
+        </div>
+
+        <div class="panel panel-light" id="panel-corp" role="tabpanel" aria-labelledby="tab-corp">
+          <h3 class="panel-title">Team building &amp; tiệc doanh nghiệp</h3>
+          <p class="panel-meta">Trong nhà · ngoài trời · tiệc đêm <mark class="ph">[CẦN XÁC NHẬN tên doanh nghiệp được công khai]</mark></p>
+          <div class="gallery g-corp">
+            <figure class="g-a"><img src="assets/img/corp-dance-1600.webp" srcset="assets/img/corp-dance-800.webp 800w, assets/img/corp-dance-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="Nhân viên giơ tay nhảy trên bãi cỏ trong tiệc team building ban đêm"></figure>
+            <figure class="g-b"><img src="assets/img/corp-indoor-1600.webp" srcset="assets/img/corp-indoor-800.webp 800w, assets/img/corp-indoor-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo thun đen in họa tiết đầu thú, cười, chỉ tay về phía khán giả trong hội trường"></figure>
+            <figure class="g-c"><img src="assets/img/corp-night-1600.webp" srcset="assets/img/corp-night-800.webp 800w, assets/img/corp-night-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ giơ tay sau bàn DJ đặt ngoài trời vào ban đêm"></figure>
+            <figure class="g-d"><img src="assets/img/corp-day-1600.webp" srcset="assets/img/corp-day-800.webp 800w, assets/img/corp-day-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chỉnh bàn DJ trên bãi cỏ lúc chiều tà"></figure>
+          </div>
+        </div>
+
+        <div class="panel" id="panel-club" role="tabpanel" aria-labelledby="tab-club">
+          <h3 class="panel-title">Club &amp; set ngoài trời</h3>
+          <p class="panel-meta">Không gian nhỏ · khách nhảy sát booth <mark class="ph">[CẦN XÁC NHẬN tên địa điểm]</mark></p>
+          <div class="gallery g-club">
+            <figure class="g-a"><img src="assets/img/club-1-1600.webp" srcset="assets/img/club-1-800.webp 800w, assets/img/club-1-1600.webp 1280w" sizes="(min-width: 900px) 60vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ chơi nhạc tại booth trong club có màn LED đỏ, khách nhảy bên cạnh"></figure>
+            <figure class="g-b"><img src="assets/img/outdoor-dusk-1600.webp" srcset="assets/img/outdoor-dusk-800.webp 800w, assets/img/outdoor-dusk-1600.webp 1280w" sizes="(min-width: 900px) 35vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ áo đen chơi nhạc ngoài trời lúc chạng vạng, góc máy thấp"></figure>
+            <figure class="g-c"><img src="assets/img/outdoor-day-1600.webp" srcset="assets/img/outdoor-day-800.webp 800w, assets/img/outdoor-day-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chơi nhạc ở ban công ngoài trời, phía sau là đồi núi xanh"></figure>
+            <figure class="g-d"><img src="assets/img/club-2-1600.webp" srcset="assets/img/club-2-800.webp 800w, assets/img/club-2-1600.webp 1280w" sizes="(min-width: 900px) 60vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ cầm micro trong club, khách giơ tay nhảy"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE -->
+    <section class="signature" aria-labelledby="sig-title">
+      <div class="container sig-grid">
+        <div class="sig-text reveal">
+          <p class="eyebrow">Khoảnh khắc quen thuộc</p>
+          <h2 id="sig-title" class="display display-sm">Một ngón tay<br><em>lên trời</em></h2>
+          <p>Khi drop sắp tới, cả khán phòng biết phải nhìn về đâu.</p>
+        </div>
+        <figure class="sig-img reveal">
+          <img src="assets/img/sig-point-1600.webp" srcset="assets/img/sig-point-800.webp 800w, assets/img/sig-point-1600.webp 1600w" sizes="(min-width: 900px) 45vw, 100vw" width="1600" height="2292" loading="lazy" alt="DJ áo sơ mi họa tiết chỉ một ngón tay lên trời, tay kia cầm micro, phía sau là biển đèn neon">
+        </figure>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dịch vụ</p>
+          <h2 id="services-title" class="h2">Đặt kiểu set phù hợp</h2>
+          <p class="note"><mark class="ph">[CẦN KHÁCH HÀNG XÁC NHẬN]</mark> Danh sách dịch vụ, thời lượng và thiết bị dưới đây là nội dung mẫu dựa trên ảnh sự kiện.</p>
+        </div>
+        <ol class="service-list">
+          <li class="service reveal">
+            <span class="service-no" aria-hidden="true">01</span>
+            <h3>DJ set</h3>
+            <p>Chơi nhạc xuyên suốt chương trình, đọc không khí và giữ sàn nhảy luôn đầy.</p>
+          </li>
+          <li class="service reveal">
+            <span class="service-no" aria-hidden="true">02</span>
+            <h3>DJ kiêm khuấy động</h3>
+            <p>Vừa chơi nhạc vừa cầm mic dẫn dắt, gọi khán giả tương tác — như ở các concert sinh viên.</p>
+          </li>
+          <li class="service reveal">
+            <span class="service-no" aria-hidden="true">03</span>
+            <h3>Gói theo sự kiện</h3>
+            <p>Trung thu, tiệc hè, gala, team building — chọn nhạc theo lứa tuổi và chủ đề.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="booking" aria-labelledby="booking-title">
+      <div class="container booking-grid">
+        <div class="booking-intro reveal">
+          <p class="eyebrow">Đặt show</p>
+          <h2 id="booking-title" class="display display-sm">Lên lịch<br><em>đêm diễn</em></h2>
+          <ul class="contact-list">
+            <li>Điện thoại / Zalo: <mark class="ph">[CẦN XÁC NHẬN]</mark></li>
+            <li>Email: <mark class="ph">[CẦN XÁC NHẬN]</mark></li>
+            <li>Facebook / TikTok / Instagram: <mark class="ph">[CẦN XÁC NHẬN]</mark></li>
+          </ul>
+        </div>
+        <form class="booking-form reveal" id="bookingForm" novalidate>
+          <p class="form-warning" role="note">Biểu mẫu đang ở chế độ xem trước — <strong>chưa kết nối gửi dữ liệu</strong>.</p>
+          <div class="field">
+            <label for="f-name">Tên của bạn / đơn vị</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Số điện thoại</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="field">
+              <label for="f-date">Ngày diễn</label>
+              <input id="f-date" name="date" type="date">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-type">Loại sự kiện</label>
+              <select id="f-type" name="type">
+                <option>Concert / lễ hội</option>
+                <option>Sự kiện trường học</option>
+                <option>Doanh nghiệp / team building</option>
+                <option>Club / tiệc riêng</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-size">Số khách dự kiến</label>
+              <input id="f-size" name="size" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Địa điểm &amp; ghi chú</label>
+            <textarea id="f-msg" name="message" rows="4"></textarea>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Gửi yêu cầu</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="wordmark wordmark-lg">Ngựa Chín <span>Hồng Mao</span></p>
+      <nav aria-label="Liên kết cuối trang">
+        <ul>
+          <li><a href="#shows">Show</a></li>
+          <li><a href="#about">Về DJ</a></li>
+          <li><a href="#services">Dịch vụ</a></li>
+          <li><a href="#booking">Đặt show</a></li>
+        </ul>
+      </nav>
+      <p class="credit">Ảnh: <mark class="ph">[CẦN XÁC NHẬN tên nhiếp ảnh gia]</mark> · © <span id="year">2026</span> Ngựa Chín Hồng Mao</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
