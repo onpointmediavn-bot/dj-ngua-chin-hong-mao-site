@@ -74,91 +74,93 @@
       </div>
     </section>
 
-    <!-- CROWD MOMENT -->
-    <section class="moment" aria-labelledby="moment-title">
-      <img class="moment-img" src="assets/img/concert-crowd-1600.webp"
-           srcset="assets/img/concert-crowd-800.webp 800w, assets/img/concert-crowd-1600.webp 1600w"
-           sizes="100vw" width="1600" height="1067" loading="lazy"
-           alt="Hàng trăm khán giả giơ cao gậy cổ vũ màu trắng trước sân khấu concert">
-      <div class="moment-shade" aria-hidden="true"></div>
-      <div class="container moment-text reveal">
-        <h2 id="moment-title" class="display">Đám đông là<br>nửa còn lại<br><em>của set nhạc</em></h2>
-      </div>
-    </section>
-
-    <!-- SHOWS BY TYPE -->
+    <!-- SHOWS — mỗi show một khối: ảnh tách nền + ảnh toàn cảnh + cột ảnh phụ (ProXi_cutout-overlay) -->
     <section class="shows" id="shows" aria-labelledby="shows-title">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Show đã chơi</p>
-          <h2 id="shows-title" class="h2">Chọn kiểu sự kiện của bạn</h2>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="Loại sự kiện" hidden>
-          <button role="tab" id="tab-concert" aria-controls="panel-concert" aria-selected="true">Concert</button>
-          <button role="tab" id="tab-school" aria-controls="panel-school" aria-selected="false" tabindex="-1">Trường học</button>
-          <button role="tab" id="tab-corp" aria-controls="panel-corp" aria-selected="false" tabindex="-1">Doanh nghiệp</button>
-          <button role="tab" id="tab-club" aria-controls="panel-club" aria-selected="false" tabindex="-1">Club &amp; ngoài trời</button>
-        </div>
-
-        <div class="panel" id="panel-concert" role="tabpanel" aria-labelledby="tab-concert">
-          <h3 class="panel-title">Concert sinh viên</h3>
-          <p class="panel-meta">Sân khấu lớn · LED · hàng trăm khán giả <mark class="ph">[CẦN XÁC NHẬN tên sự kiện được công khai]</mark></p>
-          <div class="gallery g-concert">
-            <figure class="g-a"><img src="assets/img/concert-stage-1600.webp" srcset="assets/img/concert-stage-800.webp 800w, assets/img/concert-stage-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo khoác đỏ cầm micro trước màn LED đỏ bùng nổ"></figure>
-            <figure class="g-b"><img src="assets/img/concert-arms-1600.webp" srcset="assets/img/concert-arms-800.webp 800w, assets/img/concert-arms-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ dang rộng hai tay trên sân khấu, phía sau là màn LED xoáy nhiều màu"></figure>
-            <figure class="g-c"><img src="assets/img/concert-selfie-1600.webp" srcset="assets/img/concert-selfie-800.webp 800w, assets/img/concert-selfie-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="907" loading="lazy" alt="DJ chụp cùng khán giả đang giơ gậy cổ vũ trong làn khói sân khấu"></figure>
-            <figure class="g-d"><img src="assets/img/concert-back-1600.webp" srcset="assets/img/concert-back-800.webp 800w, assets/img/concert-back-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="Nhìn từ phía sau DJ áo khoác đỏ hướng ra biển khán giả"></figure>
-          </div>
-        </div>
-
-        <div class="panel panel-light" id="panel-school" role="tabpanel" aria-labelledby="tab-school">
-          <h3 class="panel-title">Sự kiện trường học</h3>
-          <p class="panel-meta">Trung thu · tiệc hè · gala lớp <mark class="ph">[CẦN XÁC NHẬN tên trường được công khai]</mark></p>
-          <div class="gallery g-school">
-            <figure class="g-a"><img src="assets/img/school-gala-1600.webp" srcset="assets/img/school-gala-800.webp 800w, assets/img/school-gala-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo sơ mi họa tiết chỉ tay lên trời, cầm micro, bên cạnh biển đèn neon gala ngoài trời"></figure>
-            <figure class="g-b"><img src="assets/img/school-midautumn-1600.webp" srcset="assets/img/school-midautumn-800.webp 800w, assets/img/school-midautumn-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chơi nhạc trước phông nền Trung thu với đèn lồng và bánh trung thu"></figure>
-            <figure class="g-c"><img src="assets/img/school-summer-1600.webp" srcset="assets/img/school-summer-800.webp 800w, assets/img/school-summer-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo thun kem chỉ tay lên trời trước phông nền tiệc hè"></figure>
-            <figure class="g-d"><img src="assets/img/school-point-1600.webp" srcset="assets/img/school-point-800.webp 800w, assets/img/school-point-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1066" loading="lazy" alt="DJ đứng sau bàn DJ Pioneer, giơ tay, phía sau là phông nền mùa hè nhiều màu"></figure>
-          </div>
-        </div>
-
-        <div class="panel panel-light" id="panel-corp" role="tabpanel" aria-labelledby="tab-corp">
-          <h3 class="panel-title">Team building &amp; tiệc doanh nghiệp</h3>
-          <p class="panel-meta">Trong nhà · ngoài trời · tiệc đêm <mark class="ph">[CẦN XÁC NHẬN tên doanh nghiệp được công khai]</mark></p>
-          <div class="gallery g-corp">
-            <figure class="g-a"><img src="assets/img/corp-dance-1600.webp" srcset="assets/img/corp-dance-800.webp 800w, assets/img/corp-dance-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="Nhân viên giơ tay nhảy trên bãi cỏ trong tiệc team building ban đêm"></figure>
-            <figure class="g-b"><img src="assets/img/corp-indoor-1600.webp" srcset="assets/img/corp-indoor-800.webp 800w, assets/img/corp-indoor-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ áo thun đen in họa tiết đầu thú, cười, chỉ tay về phía khán giả trong hội trường"></figure>
-            <figure class="g-c"><img src="assets/img/corp-night-1600.webp" srcset="assets/img/corp-night-800.webp 800w, assets/img/corp-night-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ giơ tay sau bàn DJ đặt ngoài trời vào ban đêm"></figure>
-            <figure class="g-d"><img src="assets/img/corp-day-1600.webp" srcset="assets/img/corp-day-800.webp 800w, assets/img/corp-day-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chỉnh bàn DJ trên bãi cỏ lúc chiều tà"></figure>
-          </div>
-        </div>
-
-        <div class="panel" id="panel-club" role="tabpanel" aria-labelledby="tab-club">
-          <h3 class="panel-title">Club &amp; set ngoài trời</h3>
-          <p class="panel-meta">Không gian nhỏ · khách nhảy sát booth <mark class="ph">[CẦN XÁC NHẬN tên địa điểm]</mark></p>
-          <div class="gallery g-club">
-            <figure class="g-a"><img src="assets/img/club-1-1600.webp" srcset="assets/img/club-1-800.webp 800w, assets/img/club-1-1600.webp 1280w" sizes="(min-width: 900px) 60vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ chơi nhạc tại booth trong club có màn LED đỏ, khách nhảy bên cạnh"></figure>
-            <figure class="g-b"><img src="assets/img/outdoor-dusk-1600.webp" srcset="assets/img/outdoor-dusk-800.webp 800w, assets/img/outdoor-dusk-1600.webp 1280w" sizes="(min-width: 900px) 35vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ áo đen chơi nhạc ngoài trời lúc chạng vạng, góc máy thấp"></figure>
-            <figure class="g-c"><img src="assets/img/outdoor-day-1600.webp" srcset="assets/img/outdoor-day-800.webp 800w, assets/img/outdoor-day-1600.webp 1600w" sizes="(min-width: 900px) 35vw, 100vw" width="1600" height="1067" loading="lazy" alt="DJ chơi nhạc ở ban công ngoài trời, phía sau là đồi núi xanh"></figure>
-            <figure class="g-d"><img src="assets/img/club-2-1600.webp" srcset="assets/img/club-2-800.webp 800w, assets/img/club-2-1600.webp 1280w" sizes="(min-width: 900px) 60vw, 100vw" width="1280" height="720" loading="lazy" alt="DJ cầm micro trong club, khách giơ tay nhảy"></figure>
-          </div>
+          <h2 id="shows-title" class="h2">Đám đông là nửa còn lại <em>của set nhạc</em></h2>
+          <p class="note"><mark class="ph">[CẦN XÁC NHẬN]</mark> Tên show lấy từ phông nền/thư mục ảnh — khách xác nhận được phép ghi tên.</p>
         </div>
       </div>
-    </section>
-
-    <!-- SIGNATURE -->
-    <section class="signature" aria-labelledby="sig-title">
-      <div class="container sig-grid">
-        <div class="sig-text reveal">
-          <p class="eyebrow">Khoảnh khắc quen thuộc</p>
-          <h2 id="sig-title" class="display display-sm">Một ngón tay<br><em>lên trời</em></h2>
-          <p>Khi drop sắp tới, cả khán phòng biết phải nhìn về đâu.</p>
-        </div>
-        <figure class="sig-img reveal">
-          <img src="assets/img/sig-point-1600.webp" srcset="assets/img/sig-point-800.webp 800w, assets/img/sig-point-1600.webp 1600w" sizes="(min-width: 900px) 45vw, 100vw" width="1600" height="2292" loading="lazy" alt="DJ áo sơ mi họa tiết chỉ một ngón tay lên trời, tay kia cầm micro, phía sau là biển đèn neon">
+        <article class="co-block reveal" aria-labelledby="show-vutm">
+        <figure class="co-main">
+          <button type="button" class="co-zoom" data-zoom="assets/shows/vutm-0.webp" aria-label="Xem ảnh lớn: Nhìn từ sau lưng DJ áo khoác đỏ ra biển khán giả giơ gậy cổ vũ">
+            <img src="assets/shows/vutm-0-sm.webp" srcset="assets/shows/vutm-0-sm.webp 800w, assets/shows/vutm-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Nhìn từ sau lưng DJ áo khoác đỏ ra biển khán giả giơ gậy cổ vũ">
+          </button>
         </figure>
-      </div>
+        <img class="co-cut" src="assets/cutouts/vutm.webp" width="1091" height="1800" loading="lazy" alt="DJ áo khoác đỏ cầm micro hát cùng khán giả">
+        <header class="co-cap">
+          <span>01 · Concert sinh viên</span>
+          <h3 id="show-vutm">VUTM DJ Show</h3>
+          <p>Sân khấu LED, cả biển gậy cổ vũ giơ cao theo từng cú drop.</p>
+        </header>
+        <div class="co-thumbs">
+          <button type="button" data-zoom="assets/shows/vutm-1.webp" aria-label="Xem ảnh lớn: Khán giả hò reo trước sân khấu"><img src="assets/shows/vutm-1-sm.webp" width="800" height="533" loading="lazy" alt="Khán giả hò reo trước sân khấu"></button>
+          <button type="button" data-zoom="assets/shows/vutm-2.webp" aria-label="Xem ảnh lớn: Khán giả giơ gậy cổ vũ sát rào sân khấu"><img src="assets/shows/vutm-2-sm.webp" width="800" height="533" loading="lazy" alt="Khán giả giơ gậy cổ vũ sát rào sân khấu"></button>
+          <button type="button" data-zoom="assets/shows/vutm-3.webp" aria-label="Xem ảnh lớn: DJ nhảy cùng sinh viên trên sân khấu"><img src="assets/shows/vutm-3-sm.webp" width="800" height="533" loading="lazy" alt="DJ nhảy cùng sinh viên trên sân khấu"></button>
+          <button type="button" data-zoom="assets/shows/vutm-4.webp" aria-label="Xem ảnh lớn: DJ chụp ảnh cùng khán giả hàng đầu"><img src="assets/shows/vutm-4-sm.webp" width="800" height="533" loading="lazy" alt="DJ chụp ảnh cùng khán giả hàng đầu"></button>
+          <button type="button" data-zoom="assets/shows/vutm-5.webp" aria-label="Xem ảnh lớn: Khán giả cười và vẫy gậy cổ vũ"><img src="assets/shows/vutm-5-sm.webp" width="800" height="533" loading="lazy" alt="Khán giả cười và vẫy gậy cổ vũ"></button>
+        </div>
+      </article>
+        <article class="co-block reveal co-right" aria-labelledby="show-summer">
+        <figure class="co-main">
+          <button type="button" class="co-zoom" data-zoom="assets/shows/summer-0.webp" aria-label="Xem ảnh lớn: Học sinh nhảy trước phông nền Vinser’s Summer">
+            <img src="assets/shows/summer-0-sm.webp" srcset="assets/shows/summer-0-sm.webp 800w, assets/shows/summer-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Học sinh nhảy trước phông nền Vinser’s Summer">
+          </button>
+        </figure>
+        <img class="co-cut" src="assets/cutouts/summer.webp" width="1319" height="1800" loading="lazy" alt="DJ áo thun trắng chỉ tay lên trời">
+        <header class="co-cap">
+          <span>02 · Tiệc hè trường học</span>
+          <h3 id="show-summer">Vinser’s Summer</h3>
+          <p>Sân cỏ, phông nền mùa hè, cả lớp nhảy quanh bàn DJ.</p>
+        </header>
+        <div class="co-thumbs">
+          <button type="button" data-zoom="assets/shows/summer-1.webp" aria-label="Xem ảnh lớn: DJ chỉ tay lên trời sau bàn DJ"><img src="assets/shows/summer-1-sm.webp" width="800" height="533" loading="lazy" alt="DJ chỉ tay lên trời sau bàn DJ"></button>
+          <button type="button" data-zoom="assets/shows/summer-2.webp" aria-label="Xem ảnh lớn: DJ cầm micro, học sinh nhảy phía trước"><img src="assets/shows/summer-2-sm.webp" width="800" height="533" loading="lazy" alt="DJ cầm micro, học sinh nhảy phía trước"></button>
+          <button type="button" data-zoom="assets/shows/summer-3.webp" aria-label="Xem ảnh lớn: Học sinh vây quanh bàn DJ"><img src="assets/shows/summer-3-sm.webp" width="800" height="533" loading="lazy" alt="Học sinh vây quanh bàn DJ"></button>
+          <button type="button" data-zoom="assets/shows/summer-4.webp" aria-label="Xem ảnh lớn: DJ đeo tai nghe sau bàn DJ"><img src="assets/shows/summer-4-sm.webp" width="533" height="800" loading="lazy" alt="DJ đeo tai nghe sau bàn DJ"></button>
+          <button type="button" data-zoom="assets/shows/summer-5.webp" aria-label="Xem ảnh lớn: Học sinh nhảy dưới đèn màu"><img src="assets/shows/summer-5-sm.webp" width="800" height="533" loading="lazy" alt="Học sinh nhảy dưới đèn màu"></button>
+        </div>
+      </article>
+        <article class="co-block reveal" aria-labelledby="show-google">
+        <figure class="co-main">
+          <button type="button" class="co-zoom" data-zoom="assets/shows/google-0.webp" aria-label="Xem ảnh lớn: Nhân viên giơ tay nhảy trước phông nền Team Building">
+            <img src="assets/shows/google-0-sm.webp" srcset="assets/shows/google-0-sm.webp 800w, assets/shows/google-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Nhân viên giơ tay nhảy trước phông nền Team Building">
+          </button>
+        </figure>
+        <img class="co-cut" src="assets/cutouts/google.webp" width="1297" height="1484" loading="lazy" alt="DJ áo thun đen đứng sau bàn DJ ngoài trời">
+        <header class="co-cap">
+          <span>03 · Team building doanh nghiệp</span>
+          <h3 id="show-google">Google Team Building</h3>
+          <p>Bãi cỏ ban đêm, cả công ty giơ tay theo nhạc.</p>
+        </header>
+        <div class="co-thumbs">
+          <button type="button" data-zoom="assets/shows/google-1.webp" aria-label="Xem ảnh lớn: Đám đông giơ tay nhảy trên bãi cỏ ban đêm"><img src="assets/shows/google-1-sm.webp" width="800" height="533" loading="lazy" alt="Đám đông giơ tay nhảy trên bãi cỏ ban đêm"></button>
+          <button type="button" data-zoom="assets/shows/google-2.webp" aria-label="Xem ảnh lớn: DJ cười trước phông nền Google"><img src="assets/shows/google-2-sm.webp" width="800" height="533" loading="lazy" alt="DJ cười trước phông nền Google"></button>
+          <button type="button" data-zoom="assets/shows/google-3.webp" aria-label="Xem ảnh lớn: DJ giơ tay sau bàn DJ ngoài trời"><img src="assets/shows/google-3-sm.webp" width="800" height="533" loading="lazy" alt="DJ giơ tay sau bàn DJ ngoài trời"></button>
+          <button type="button" data-zoom="assets/shows/google-4.webp" aria-label="Xem ảnh lớn: DJ chơi nhạc trước phông nền Android"><img src="assets/shows/google-4-sm.webp" width="533" height="800" loading="lazy" alt="DJ chơi nhạc trước phông nền Android"></button>
+          <button type="button" data-zoom="assets/shows/google-5.webp" aria-label="Xem ảnh lớn: Nhân viên nhảy dưới ánh đèn đêm"><img src="assets/shows/google-5-sm.webp" width="800" height="533" loading="lazy" alt="Nhân viên nhảy dưới ánh đèn đêm"></button>
+        </div>
+      </article>
+        <article class="co-block reveal co-right" aria-labelledby="show-gala">
+        <figure class="co-main">
+          <button type="button" class="co-zoom" data-zoom="assets/shows/gala-0.webp" aria-label="Xem ảnh lớn: DJ chỉ tay lên trời bên biển đèn neon Galanight 5A">
+            <img src="assets/shows/gala-0-sm.webp" srcset="assets/shows/gala-0-sm.webp 800w, assets/shows/gala-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="DJ chỉ tay lên trời bên biển đèn neon Galanight 5A">
+          </button>
+        </figure>
+        <img class="co-cut" src="assets/cutouts/gala.webp" width="952" height="1800" loading="lazy" alt="DJ áo sơ mi họa tiết nhiều màu, cười, giơ ngón cái">
+        <header class="co-cap">
+          <span>04 · Gala lớp</span>
+          <h3 id="show-gala">Galanight 5A</h3>
+          <p>Đèn neon, micro trên tay, một ngón tay lên trời.</p>
+        </header>
+        <div class="co-thumbs">
+          <button type="button" data-zoom="assets/shows/gala-1.webp" aria-label="Xem ảnh lớn: DJ cầm micro chỉ tay lên trời"><img src="assets/shows/gala-1-sm.webp" width="558" height="800" loading="lazy" alt="DJ cầm micro chỉ tay lên trời"></button>
+          <button type="button" data-zoom="assets/shows/gala-2.webp" aria-label="Xem ảnh lớn: DJ cầm micro bên biển đèn neon"><img src="assets/shows/gala-2-sm.webp" width="558" height="800" loading="lazy" alt="DJ cầm micro bên biển đèn neon"></button>
+          <button type="button" data-zoom="assets/shows/gala-3.webp" aria-label="Xem ảnh lớn: DJ cười sau bàn DJ"><img src="assets/shows/gala-3-sm.webp" width="656" height="800" loading="lazy" alt="DJ cười sau bàn DJ"></button>
+        </div>
+      </article>
     </section>
 
     <!-- SERVICES -->

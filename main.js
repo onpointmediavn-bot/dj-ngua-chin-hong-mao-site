@@ -26,31 +26,34 @@ const onScroll = () => header.classList.toggle("is-solid", window.scrollY > 40);
 onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
-/* Tabs loại sự kiện (không có JS: hiện tất cả panel) */
-const tablist = document.querySelector('[role="tablist"]');
-const tabs = [...tablist.querySelectorAll('[role="tab"]')];
-const panels = tabs.map(t => document.getElementById(t.getAttribute("aria-controls")));
-tablist.hidden = false;
-function select(i, focus) {
-  tabs.forEach((t, j) => {
-    const on = i === j;
-    t.setAttribute("aria-selected", String(on));
-    t.tabIndex = on ? 0 : -1;
-    panels[j].hidden = !on;
-  });
-  if (focus) tabs[i].focus();
+/* Phóng to ảnh show: bấm ảnh có data-zoom; bấm nền, nút Đóng hoặc Esc để đóng */
+let lastFocus = null;
+function closeLightbox() {
+  const lb = document.querySelector(".co-lb");
+  if (!lb) return;
+  lb.remove();
+  if (lastFocus) lastFocus.focus();
 }
-tabs.forEach((t, i) => {
-  t.addEventListener("click", () => select(i));
-  t.addEventListener("keydown", e => {
-    const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (k) { e.preventDefault(); select((i + k + tabs.length) % tabs.length, true); }
-    if (e.key === "Home") { e.preventDefault(); select(0, true); }
-    if (e.key === "End") { e.preventDefault(); select(tabs.length - 1, true); }
-  });
+document.addEventListener("click", e => {
+  if (document.querySelector(".co-lb")) { closeLightbox(); return; }
+  const t = e.target.closest("[data-zoom]");
+  if (!t) return;
+  lastFocus = t;
+  const d = document.createElement("div");
+  d.className = "co-lb";
+  d.setAttribute("role", "dialog");
+  d.setAttribute("aria-modal", "true");
+  d.setAttribute("aria-label", "Xem ảnh lớn");
+  const img = document.createElement("img");
+  img.src = t.dataset.zoom;
+  img.alt = t.querySelector("img")?.alt || "";
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "co-lb-close"; btn.textContent = "Đóng ✕";
+  d.append(img, btn);
+  document.body.appendChild(d);
+  btn.focus();
 });
-panels.forEach(p => p.setAttribute("tabindex", "0"));
-select(0);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
 /* Hiện nội dung theo nhịp khi cuộn */
 const items = document.querySelectorAll(".reveal");
