@@ -16,9 +16,9 @@ if (isPhone) {
   video.poster = video.dataset.posterM;
   video.src = "assets/hero-720.mp4";
 }
-/* mạng yếu hoặc bật Tiết kiệm dữ liệu: chỉ hiện ảnh, không tự phát video */
+/* mạng rất yếu (2G) hoặc bật Tiết kiệm dữ liệu: chỉ hiện ảnh, không tự phát video */
 const conn = navigator.connection || {};
-const slowNet = conn.saveData || /(^|-)2g|3g/.test(conn.effectiveType || "");
+const slowNet = conn.saveData || /2g/.test(conn.effectiveType || "");
 if (reduceMotion.matches || slowNet) {
   video.preload = "none";
   setPlaying(false);
