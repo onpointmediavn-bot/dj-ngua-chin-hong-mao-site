@@ -1,0 +1,195 @@
+/* ===== ProXi — thư viện 12 kiểu bố cục ảnh cho section chương trình =====
+   Gắn vào site có sẵn: đặt biến --bc-* bằng token của site (màu, font, bo góc) để giữ concept chung.
+   Mọi kiểu dùng chung: .bc (khối) · .bc-ph (nút ảnh, bấm mở album) · .bc-cap (chữ: .bc-kick, h3, .bc-meta, .bc-count)
+   Ảnh: style="--pos:50% 30%" (vị trí cắt máy tính) · "--pos-m:…" (điện thoại). Thêm .bc-flip để đảo trái/phải. */
+.bc{--r:var(--bc-radius,22px);--g:var(--bc-gap,12px);--bg:var(--bc-bg,#fff);position:relative;margin:0 0 var(--bc-space,clamp(64px,9vw,112px))}
+.bc *,.bc *::before,.bc *::after{box-sizing:border-box}
+.bc-ph{display:block;position:relative;width:100%;height:100%;margin:0;padding:0;border:0;overflow:hidden;border-radius:var(--r);background:var(--bc-surface,#e8eef2);cursor:zoom-in;font:inherit;color:inherit}
+.bc-ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 35%);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.bc-ph:hover img{transform:scale(1.04)}
+.bc-ph:focus-visible{outline:3px solid var(--bc-accent,#0a6e9c);outline-offset:3px}
+.bc-cap .bc-kick{display:block;font-family:var(--bc-font-body);font-weight:600;font-size:12px;line-height:1.45;letter-spacing:.2em;text-transform:uppercase;color:var(--bc-accent,#0a6e9c)}
+.bc-cap h3{font-family:var(--bc-font-display);font-weight:600;font-size:clamp(24px,2.6vw,38px);line-height:1.16;margin:.35em 0 .25em;padding-top:.1em;color:var(--bc-text,inherit);text-wrap:balance}
+.bc-cap .bc-meta{margin:0;font-weight:600;font-size:15px;color:var(--bc-muted,#5b6b78)}
+.bc-cap .bc-desc{margin:.6em 0 0;color:var(--bc-muted,#5b6b78);max-width:46ch}
+.bc-count{display:inline-block;margin-top:12px;padding:7px 12px;border-radius:99px;font-family:var(--bc-font-body);font-weight:600;font-size:12px;line-height:1;letter-spacing:.06em;background:var(--bc-chip,rgba(10,110,156,.1));color:var(--bc-accent,#0a6e9c)}
+/* chữ đè trên ảnh */
+.bc-on{color:#fff}
+.bc-on h3{color:#fff}.bc-on .bc-kick{color:var(--bc-accent-light,#7fe0d6)}.bc-on .bc-meta,.bc-on .bc-desc{color:rgba(255,255,255,.86)}
+.bc-on .bc-count{background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(6px)}
+.bc-shade{position:relative}
+.bc-shade::after{content:"";position:absolute;inset:0;border-radius:var(--r);pointer-events:none;background:linear-gradient(180deg,transparent 42%,var(--bc-shade,rgba(6,20,34,.86)))}
+.bc-shade>.bc-cap{position:absolute;z-index:2;pointer-events:none}
+/* đầu khối khi chữ nằm ngoài ảnh */
+.bc-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin-bottom:18px}
+.bc-head .bc-cap h3{margin-bottom:.1em}
+.bc-head.bc-center{justify-content:center;text-align:center}
+.bc-scroll{display:flex;gap:var(--g);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bc-scroll::-webkit-scrollbar{display:none}
+.bc-scroll>*{scroll-snap-align:start}
+
+/* 1. CHÍNH + CỘT — ảnh lớn có MC, cột 4–5 ảnh nhỏ */
+.bc-chinh-cot{display:grid;grid-template-columns:1fr minmax(150px,200px);gap:var(--g);height:var(--bc-h,min(72vh,620px))}
+.bc-chinh-cot .bc-main{min-height:0}
+.bc-chinh-cot .bc-cap{left:clamp(20px,3vw,36px);right:clamp(20px,3vw,36px);bottom:clamp(18px,2.4vw,30px)}
+.bc-chinh-cot .bc-col{display:grid;grid-auto-rows:1fr;gap:10px;min-height:0}
+.bc-chinh-cot .bc-col .bc-ph{border-radius:calc(var(--r)*.65)}
+.bc-chinh-cot.bc-flip{grid-template-columns:minmax(150px,200px) 1fr}
+.bc-chinh-cot.bc-flip .bc-col{order:-1}
+
+/* 2. POSTER — ảnh tràn rộng, tên chữ rất lớn, dải ảnh nhỏ dưới */
+.bc-poster .bc-main{height:var(--bc-h,min(80vh,720px))}
+.bc-poster .bc-cap{left:clamp(20px,3.4vw,44px);right:52%;bottom:clamp(20px,3vw,38px)}
+.bc-poster .bc-cap h3{font-size:clamp(32px,4.4vw,62px);line-height:1.08}
+.bc-poster.bc-flip .bc-cap{left:52%;right:clamp(20px,3.4vw,44px);text-align:right}
+.bc-poster .bc-row{display:flex;gap:var(--g);margin-top:var(--g)}
+.bc-poster .bc-row .bc-ph{flex:1 1 0;min-width:0;aspect-ratio:4/3;border-radius:calc(var(--r)*.75)}
+
+/* 3. ĐÔI — hai ảnh lớn cạnh nhau, chữ ở trên (không đè người) */
+.bc-doi .bc-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--g);height:var(--bc-h,min(66vh,560px))}
+.bc-doi .bc-pair .bc-ph:first-child{border-radius:var(--r) calc(var(--r)*.4) calc(var(--r)*.4) var(--r)}
+.bc-doi .bc-pair .bc-ph:last-child{border-radius:calc(var(--r)*.4) var(--r) var(--r) calc(var(--r)*.4)}
+.bc-doi .bc-row{display:flex;gap:var(--g);margin-top:var(--g)}
+.bc-doi .bc-row .bc-ph{flex:1 1 0;min-width:0;aspect-ratio:16/10;border-radius:calc(var(--r)*.65)}
+
+/* 4. TẠP CHÍ — lưới ghép to nhỏ + ô màu ghi tên */
+.bc-tap-chi{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,var(--bc-row,clamp(170px,17vw,230px)));gap:var(--g)}
+.bc-tap-chi .m1{grid-column:1/3;grid-row:1/3}.bc-tap-chi .m2{grid-column:3;grid-row:1/3}
+.bc-tap-chi .bc-tile{grid-column:4;grid-row:1/3;display:flex;align-items:flex-end;padding:clamp(18px,2vw,28px);border-radius:var(--r);background:var(--bc-tile,linear-gradient(160deg,#0a6e9c,#0b2236))}
+.bc-tap-chi .bc-tile h3{font-size:clamp(19px,1.6vw,24px)}
+.bc-tap-chi .m3{grid-column:1;grid-row:3}.bc-tap-chi .m4{grid-column:2/4;grid-row:3}.bc-tap-chi .m5{grid-column:4;grid-row:3}
+.bc-tap-chi.bc-flip .m1{grid-column:3/5}.bc-tap-chi.bc-flip .m2{grid-column:2}.bc-tap-chi.bc-flip .bc-tile{grid-column:1}
+.bc-tap-chi.bc-flip .m3{grid-column:4}.bc-tap-chi.bc-flip .m4{grid-column:2/4}.bc-tap-chi.bc-flip .m5{grid-column:1}
+
+/* 5. TOÀN CẢNH + ẢNH DỌC — ảnh rộng trên, 3 ảnh dọc nhô lên mép dưới */
+.bc-toan-canh .bc-wide{height:var(--bc-h,min(54vh,480px))}
+.bc-toan-canh .bc-tall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:-90px clamp(16px,4vw,48px) 0;position:relative;z-index:1}
+.bc-toan-canh .bc-tall .bc-ph{aspect-ratio:3/4;border:6px solid var(--bg);box-shadow:0 24px 48px -28px rgba(11,34,54,.55)}
+
+/* 6. ẢNH IN XẾP CHỒNG — 3 ảnh viền trắng xoay nhẹ cạnh khối chữ lớn */
+.bc-anh-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,48px);align-items:center}
+.bc-anh-in .bc-cap h3{font-size:clamp(30px,3.4vw,50px)}
+.bc-anh-in .bc-cards{position:relative;height:var(--bc-h,min(66vh,560px))}
+.bc-anh-in .bc-cards .bc-ph{position:absolute;height:auto;border:8px solid var(--bg);border-radius:14px;box-shadow:0 30px 60px -30px rgba(11,34,54,.55)}
+.bc-anh-in .c1{width:46%;aspect-ratio:3/4;left:0;top:8%;transform:rotate(-6deg)}
+.bc-anh-in .c2{width:42%;aspect-ratio:3/4;right:0;top:0;transform:rotate(5deg)}
+.bc-anh-in .c3{width:62%;aspect-ratio:4/3;left:19%;bottom:0;transform:rotate(-1.5deg);z-index:2}
+.bc-anh-in.bc-flip{grid-template-columns:1.15fr .85fr}.bc-anh-in.bc-flip .bc-cap{order:2}
+
+/* 7. CHỮ + CỤM ẢNH — cột chữ có vạch nhấn, cụm 3 ảnh so le */
+.bc-chu-cum{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,44px);align-items:center}
+.bc-chu-cum .bc-cap{padding-left:22px;border-left:3px solid var(--bc-accent,#0a6e9c)}
+.bc-chu-cum .bc-cluster{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;gap:var(--g);height:var(--bc-h,min(64vh,540px))}
+.bc-chu-cum .bc-cluster .a{grid-row:1/3}
+.bc-chu-cum.bc-flip{grid-template-columns:1.2fr .8fr}.bc-chu-cum.bc-flip .bc-cap{order:2}
+
+/* 8. DẢI PHIM — hàng ảnh cùng chiều cao trượt ngang */
+.bc-dai-phim .bc-strip{height:var(--bc-h,clamp(260px,36vw,420px));padding-bottom:4px;mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.bc-dai-phim .bc-strip .bc-ph{flex:0 0 auto;width:auto;height:100%;border-radius:calc(var(--r)*.7)}
+.bc-dai-phim .bc-strip .bc-ph img{width:auto;height:100%}
+.bc-hint{font-size:13px;color:var(--bc-muted,#5b6b78)}
+
+/* 9. TRÌNH TỰ — 4 ảnh theo mốc có nhãn */
+.bc-trinh-tu .bc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--g);margin:0;padding:0;list-style:none}
+.bc-trinh-tu .bc-steps li{display:flex;flex-direction:column;gap:12px}
+.bc-trinh-tu .bc-steps .bc-ph{aspect-ratio:4/5;height:auto}
+.bc-step{display:block;padding-top:12px;border-top:2px solid var(--bc-accent,#0a6e9c);font-family:var(--bc-font-body);font-weight:600;font-size:14px;line-height:1.35;color:var(--bc-text,inherit)}
+.bc-step b{display:block;font-size:12px;letter-spacing:.16em;color:var(--bc-accent,#0a6e9c)}
+
+/* 10. BỘ BA ẢNH DỌC — 3 ảnh dọc, ảnh giữa lệch nhịp */
+.bc-bo-ba .bc-three{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g);align-items:start}
+.bc-bo-ba .bc-three .bc-ph{aspect-ratio:3/4;height:auto}
+.bc-bo-ba .bc-three .bc-ph:nth-child(2){margin-top:clamp(24px,4vw,56px)}
+
+/* 11. KHUNG LỆCH CHỒNG MÉP — ảnh lớn + ảnh nhỏ viền trắng đè góc */
+.bc-lech{display:grid;grid-template-columns:7fr 5fr;align-items:center}
+.bc-lech .bc-big{height:var(--bc-h,min(64vh,560px))}
+.bc-lech .bc-side{position:relative;z-index:2;margin-left:-14%;display:flex;flex-direction:column;gap:18px}
+.bc-lech .bc-side .bc-ph{aspect-ratio:4/3;height:auto;border:8px solid var(--bg);border-radius:16px;box-shadow:0 30px 60px -30px rgba(11,34,54,.55)}
+.bc-lech .bc-side .bc-ph+.bc-ph{width:62%;margin-left:auto;margin-top:-56px}
+.bc-lech .bc-side .bc-cap{padding-left:14%}
+.bc-lech.bc-flip{grid-template-columns:5fr 7fr}.bc-lech.bc-flip .bc-big{order:2}
+.bc-lech.bc-flip .bc-side{margin-left:0;margin-right:-14%}.bc-lech.bc-flip .bc-side .bc-cap{padding-left:0;padding-right:14%}
+.bc-lech.bc-flip .bc-side .bc-ph+.bc-ph{margin-left:0;margin-right:auto}
+
+/* 12. TRÀN MÀN + CON SỐ — ảnh nền rộng, số liệu quy mô thật */
+.bc-con-so .bc-main{height:var(--bc-h,min(80vh,700px))}
+.bc-con-so .bc-main::after{background:linear-gradient(90deg,var(--bc-shade,rgba(6,20,34,.88)) 0%,rgba(6,20,34,.35) 55%,transparent 80%)}
+.bc-con-so .bc-cap{left:clamp(20px,4vw,56px);top:50%;transform:translateY(-50%);max-width:min(520px,48%)}
+.bc-stats{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:20px}
+.bc-stats div{display:flex;flex-direction:column}
+.bc-stats b{font-family:var(--bc-font-display);font-weight:600;font-size:clamp(36px,4.4vw,64px);line-height:1;color:#fff}
+.bc-stats span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:6px}
+.bc-con-so.bc-flip .bc-main::after{background:linear-gradient(270deg,var(--bc-shade,rgba(6,20,34,.88)) 0%,rgba(6,20,34,.35) 55%,transparent 80%)}
+.bc-con-so.bc-flip .bc-cap{left:auto;right:clamp(20px,4vw,56px);text-align:right}.bc-con-so.bc-flip .bc-stats{justify-content:flex-end}
+.bc-con-so .bc-row{display:flex;gap:var(--g);margin-top:var(--g)}
+.bc-con-so .bc-row .bc-ph{flex:1 1 0;min-width:0;aspect-ratio:16/10;border-radius:calc(var(--r)*.65)}
+
+/* ---------- Máy tính bảng ---------- */
+@media (max-width:1024px) and (min-width:761px){
+  .bc-poster .bc-cap{right:40%}.bc-poster.bc-flip .bc-cap{left:40%}
+  .bc-tap-chi{grid-template-rows:repeat(3,150px)}
+  .bc-con-so .bc-cap{max-width:62%}
+}
+
+/* ---------- Điện thoại: mọi kiểu thu về 3 dạng gọn, vẫn giữ chất riêng ---------- */
+@media (max-width:760px){
+  .bc{--r:var(--bc-radius-m,18px);--g:8px}
+  .bc-ph img{object-position:var(--pos-m,var(--pos,50% 35%))}
+  .bc-cap h3,.bc-anh-in .bc-cap h3,.bc-tap-chi .bc-tile h3{font-size:24px}
+  .bc-cap .bc-desc{display:none}
+  /* dạng A: ảnh lớn + hàng vuốt ngang */
+  .bc-chinh-cot,.bc-chinh-cot.bc-flip{grid-template-columns:1fr;height:auto}
+  .bc-chinh-cot .bc-main{aspect-ratio:4/5}
+  .bc-chinh-cot .bc-col{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;order:0}
+  .bc-chinh-cot .bc-col .bc-ph{flex:0 0 40%;aspect-ratio:4/3;scroll-snap-align:start}
+  .bc-poster .bc-main{height:clamp(440px,72vh,580px)}
+  .bc-poster .bc-cap,.bc-poster.bc-flip .bc-cap{left:18px;right:18px;text-align:left}
+  .bc-poster .bc-cap h3{font-size:30px}
+  .bc-poster .bc-row,.bc-doi .bc-row,.bc-con-so .bc-row{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .bc-poster .bc-row .bc-ph,.bc-doi .bc-row .bc-ph,.bc-con-so .bc-row .bc-ph{flex:0 0 42%;scroll-snap-align:start}
+  .bc-doi .bc-pair{display:flex;height:auto;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .bc-doi .bc-pair .bc-ph{flex:0 0 86%;aspect-ratio:4/5;border-radius:var(--r)!important;scroll-snap-align:start}
+  .bc-con-so .bc-main{height:clamp(460px,80vh,620px)}
+  .bc-con-so .bc-main::after,.bc-con-so.bc-flip .bc-main::after{background:linear-gradient(180deg,transparent 30%,var(--bc-shade,rgba(6,20,34,.9)) 75%)}
+  .bc-con-so .bc-cap,.bc-con-so.bc-flip .bc-cap{top:auto;bottom:20px;left:18px;right:18px;transform:none;max-width:none;text-align:left}
+  .bc-con-so.bc-flip .bc-stats{justify-content:flex-start}
+  .bc-dai-phim .bc-strip{height:240px}
+  .bc-bo-ba .bc-three{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .bc-bo-ba .bc-three .bc-ph{flex:0 0 70%;scroll-snap-align:start}
+  .bc-bo-ba .bc-three .bc-ph:nth-child(2){margin-top:0}
+  /* dạng B: lưới 2 cột */
+  .bc-tap-chi,.bc-tap-chi.bc-flip{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .bc-tap-chi .bc-tile,.bc-tap-chi.bc-flip .bc-tile{grid-column:1/3;grid-row:auto;order:-1;padding:20px}
+  .bc-tap-chi .m1,.bc-tap-chi.bc-flip .m1{grid-column:1/3;grid-row:auto;aspect-ratio:4/5}
+  .bc-tap-chi .m2,.bc-tap-chi .m3,.bc-tap-chi .m4,.bc-tap-chi .m5,
+  .bc-tap-chi.bc-flip .m2,.bc-tap-chi.bc-flip .m3,.bc-tap-chi.bc-flip .m4,.bc-tap-chi.bc-flip .m5{grid-column:auto;grid-row:auto;aspect-ratio:1}
+  .bc-trinh-tu .bc-steps{grid-template-columns:1fr 1fr;row-gap:20px}
+  .bc-chu-cum,.bc-chu-cum.bc-flip{grid-template-columns:1fr;gap:18px}
+  .bc-chu-cum.bc-flip .bc-cap{order:0}
+  .bc-chu-cum .bc-cluster{height:auto;grid-template-rows:auto auto}
+  .bc-chu-cum .bc-cluster .a{grid-column:1/3;grid-row:1;aspect-ratio:4/5}
+  .bc-chu-cum .bc-cluster .b,.bc-chu-cum .bc-cluster .c{aspect-ratio:1}
+  /* dạng C: xếp dọc, giữ viền/xoay */
+  .bc-toan-canh .bc-wide{height:280px}
+  .bc-toan-canh .bc-tall{margin:-48px 10px 0;gap:8px}
+  .bc-toan-canh .bc-tall .bc-ph{border-width:4px}
+  .bc-anh-in,.bc-anh-in.bc-flip{grid-template-columns:1fr;gap:12px}
+  .bc-anh-in.bc-flip .bc-cap{order:0}
+  .bc-anh-in .bc-cards{height:420px}
+  .bc-lech,.bc-lech.bc-flip{grid-template-columns:1fr}
+  .bc-lech .bc-big,.bc-lech.bc-flip .bc-big{height:auto;aspect-ratio:4/5;order:0}
+  .bc-lech .bc-side,.bc-lech.bc-flip .bc-side{margin:-64px 0 0 auto;width:78%}
+  .bc-lech .bc-side .bc-cap,.bc-lech.bc-flip .bc-side .bc-cap{padding:0}
+  .bc-head{margin-bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){.bc-ph img{transition:none}.bc-ph:hover img{transform:none}}
+
+/* ===== Ánh xạ token web DJ Ngựa Chín Hồng Mao (giữ concept) ===== */
+:root{--bc-font-display:var(--font-display);--bc-font-body:var(--font-body);--bc-accent:var(--accent);--bc-accent-light:var(--accent);
+  --bc-text:var(--text);--bc-muted:#E9DEDA;--bc-radius:6px;--bc-radius-m:6px;--bc-bg:var(--surface);--bc-surface:var(--surface);--bc-chip:rgba(240,56,78,.14)}
+.bc{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.bc-cap .bc-kick{font-size:.75rem;font-weight:700;letter-spacing:.2em}
+.bc-cap h3,.bc-anh-in .bc-cap h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;font-size:clamp(2.4rem,5vw,4.5rem)}
+.bc-cap .bc-desc{font-size:1rem;color:#E9DEDA}
+.bc-anh-in .bc-cards .bc-ph{border-color:var(--text);box-shadow:0 30px 60px -24px rgba(0,0,0,.8)}
