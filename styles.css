@@ -97,7 +97,24 @@ mark.ph {
   background: linear-gradient(var(--accent), var(--accent)) 0 85% / 0 2px no-repeat; transition: background-size var(--cut);
 }
 .site-header nav a:hover, .site-footer nav a:hover { background-size: 100% 2px; }
-@media (min-width: 768px) { .site-header nav { display: block; } .site-header { padding-block: 16px; } }
+.menu-btn {
+  margin-left: auto; min-height: 40px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--text); border: 1px solid rgba(243, 236, 228, .45);
+  font: 700 .8125rem/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase;
+}
+.menu-btn[aria-expanded="true"] { background: var(--text); color: var(--bg); }
+@media (max-width: 767px) {
+  .site-header { gap: 8px; }
+  .wordmark { white-space: nowrap; font-size: clamp(.95rem, 4.6vw, 1.25rem); }
+  .site-header .btn-sm, .menu-btn { white-space: nowrap; padding-inline: 12px; font-size: .75rem; }
+  .site-header nav.is-open {
+    display: block; position: absolute; top: 100%; left: 0; right: 0; margin: 0;
+    background: rgba(20, 12, 16, .98); border-bottom: 1px solid var(--border); padding: 8px var(--gutter) 16px;
+  }
+  .site-header nav.is-open ul { flex-direction: column; gap: 0; }
+  .site-header nav.is-open a { display: block; padding: 14px 0; font-size: 1.125rem; border-bottom: 1px solid var(--border); }
+}
+@media (min-width: 768px) { .site-header nav { display: block; } .site-header { padding-block: 16px; } .menu-btn { display: none; } }
 
 /* Hero */
 .hero { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; isolation: isolate; }
@@ -187,7 +204,7 @@ mark.ph {
 
 /* điện thoại: ảnh toàn cảnh trên, ảnh phụ thành hàng ngang dưới */
 @media (max-width: 760px) {
-  .shows { --co-h: clamp(440px, 72vh, 560px); --co-cut-h: 70%; }
+  .shows { --co-h: clamp(420px, 66vh, 520px); --co-cut-h: 70%; }
   .co-block, .co-right { grid-template-columns: 1fr; grid-template-rows: var(--co-h) auto; height: auto; }
   .co-main, .co-right .co-main { grid-column: 1; grid-row: 1; }
   .co-thumbs, .co-right .co-thumbs { grid-column: 1; grid-row: 2; grid-auto-flow: column; grid-auto-columns: 1fr; grid-auto-rows: 72px; gap: 8px; }
@@ -204,6 +221,34 @@ mark.ph {
 .co-lb img { max-width: 100%; max-height: 90vh; width: auto; height: auto; border-radius: 6px; }
 .co-lb-close { position: absolute; top: 16px; right: 16px; min-width: 44px; min-height: 44px; border: 1px solid var(--border);
   border-radius: 999px; background: var(--surface); color: var(--text); font: 500 .9375rem var(--font-body); cursor: pointer; padding: 0 16px; }
+
+/* Video */
+.videos { padding-block: var(--space-section); background: var(--surface); }
+.vid-grid { display: grid; gap: 20px; }
+.vid { margin: 0; }
+.vid-frame { position: relative; overflow: hidden; border-radius: 6px; background: #000; aspect-ratio: 16 / 9; }
+.vid-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.vid-feature .vid-frame { aspect-ratio: 4 / 5; }
+.vid figcaption { display: flex; flex-direction: column; gap: 2px; padding-top: 10px; }
+.vid-tag { font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.vid-title { font-weight: 500; }
+/* điện thoại: video phụ thành một hàng vuốt ngang, đỡ phải cuộn dài */
+.vid-more {
+  display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin-inline: calc(var(--gutter) * -1); padding: 0 var(--gutter) 8px; scroll-padding-inline: var(--gutter); scrollbar-width: none;
+}
+.vid-more::-webkit-scrollbar { display: none; }
+.vid-more .vid { flex: 0 0 82%; scroll-snap-align: start; }
+@media (min-width: 700px) {
+  .vid-more { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; overflow: visible; margin: 0; padding: 0; }
+  .vid-feature .vid-frame { aspect-ratio: 16 / 10; }
+  .vid-feature video { object-fit: contain; }
+}
+@media (min-width: 1000px) {
+  .vid-grid { grid-template-columns: 1fr 2fr; align-items: start; }
+  .vid-feature .vid-frame { aspect-ratio: 4 / 5; }
+  .vid-feature video { object-fit: cover; }
+}
 
 /* Services */
 .services { padding-block: var(--space-section); }
@@ -257,3 +302,6 @@ textarea { resize: vertical; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* tải nhanh hơn trên điện thoại: chưa vẽ các phần ở xa màn hình */
+.videos, .services, .booking { content-visibility: auto; contain-intrinsic-size: auto 1200px; }

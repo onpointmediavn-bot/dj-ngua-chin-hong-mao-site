@@ -20,9 +20,11 @@
 
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="DJ Ngựa Chín Hồng Mao — về đầu trang">Ngựa Chín <span>Hồng Mao</span></a>
-    <nav aria-label="Điều hướng chính">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Điều hướng chính">
       <ul>
         <li><a href="#shows">Show</a></li>
+        <li><a href="#videos">Video</a></li>
         <li><a href="#about">Về DJ</a></li>
         <li><a href="#services">Dịch vụ</a></li>
       </ul>
@@ -34,8 +36,8 @@
     <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <!-- Video gốc "Hero visuals.mp4" đầy đủ 55,7 s · máy tính: 1920×1080 30fps · điện thoại: 1280×720 -->
-      <video class="hero-video" id="heroVideo" muted loop playsinline preload="auto"
-             poster="assets/img/hero-poster.webp" aria-hidden="true">
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none"
+             poster="assets/img/hero-poster.webp" data-poster-m="assets/img/hero-poster-m.webp" aria-hidden="true">
         <source src="assets/hero-720.mp4" type="video/mp4" media="(max-width: 767px)">
         <source src="assets/hero-1080.mp4" type="video/mp4">
       </video>
@@ -89,7 +91,7 @@
             <img src="assets/shows/vutm-0-sm.webp" srcset="assets/shows/vutm-0-sm.webp 800w, assets/shows/vutm-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Nhìn từ sau lưng DJ áo khoác đỏ ra biển khán giả giơ gậy cổ vũ">
           </button>
         </figure>
-        <img class="co-cut" src="assets/cutouts/vutm.webp" width="1091" height="1800" loading="lazy" alt="DJ áo khoác đỏ cầm micro hát cùng khán giả">
+        <img class="co-cut" src="assets/cutouts/vutm.webp" srcset="assets/cutouts/vutm-sm.webp 485w, assets/cutouts/vutm.webp 1091w" sizes="(max-width: 760px) 52vw, 30vw" width="1091" height="1800" loading="lazy" alt="DJ áo khoác đỏ cầm micro hát cùng khán giả">
         <header class="co-cap">
           <span>01 · Concert sinh viên</span>
           <h3 id="show-vutm">VUTM DJ Show</h3>
@@ -109,7 +111,7 @@
             <img src="assets/shows/summer-0-sm.webp" srcset="assets/shows/summer-0-sm.webp 800w, assets/shows/summer-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Học sinh nhảy trước phông nền Vinser’s Summer">
           </button>
         </figure>
-        <img class="co-cut" src="assets/cutouts/summer.webp" width="1319" height="1800" loading="lazy" alt="DJ áo thun trắng chỉ tay lên trời">
+        <img class="co-cut" src="assets/cutouts/summer.webp" srcset="assets/cutouts/summer-sm.webp 586w, assets/cutouts/summer.webp 1319w" sizes="(max-width: 760px) 52vw, 30vw" width="1319" height="1800" loading="lazy" alt="DJ áo thun trắng chỉ tay lên trời">
         <header class="co-cap">
           <span>02 · Tiệc hè trường học</span>
           <h3 id="show-summer">Vinser’s Summer</h3>
@@ -129,7 +131,7 @@
             <img src="assets/shows/google-0-sm.webp" srcset="assets/shows/google-0-sm.webp 800w, assets/shows/google-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="Nhân viên giơ tay nhảy trước phông nền Team Building">
           </button>
         </figure>
-        <img class="co-cut" src="assets/cutouts/google.webp" width="1297" height="1484" loading="lazy" alt="DJ áo thun đen đứng sau bàn DJ ngoài trời">
+        <img class="co-cut" src="assets/cutouts/google.webp" srcset="assets/cutouts/google-sm.webp 699w, assets/cutouts/google.webp 1297w" sizes="(max-width: 760px) 52vw, 30vw" width="1297" height="1484" loading="lazy" alt="DJ áo thun đen đứng sau bàn DJ ngoài trời">
         <header class="co-cap">
           <span>03 · Team building doanh nghiệp</span>
           <h3 id="show-google">Google Team Building</h3>
@@ -149,7 +151,7 @@
             <img src="assets/shows/gala-0-sm.webp" srcset="assets/shows/gala-0-sm.webp 800w, assets/shows/gala-0.webp 1600w" sizes="(max-width: 760px) 100vw, 70vw" width="1600" height="1067" loading="lazy" alt="DJ chỉ tay lên trời bên biển đèn neon Galanight 5A">
           </button>
         </figure>
-        <img class="co-cut" src="assets/cutouts/gala.webp" width="952" height="1800" loading="lazy" alt="DJ áo sơ mi họa tiết nhiều màu, cười, giơ ngón cái">
+        <img class="co-cut" src="assets/cutouts/gala.webp" srcset="assets/cutouts/gala-sm.webp 423w, assets/cutouts/gala.webp 952w" sizes="(max-width: 760px) 52vw, 30vw" width="952" height="1800" loading="lazy" alt="DJ áo sơ mi họa tiết nhiều màu, cười, giơ ngón cái">
         <header class="co-cap">
           <span>04 · Gala lớp</span>
           <h3 id="show-gala">Galanight 5A</h3>
@@ -161,6 +163,61 @@
           <button type="button" data-zoom="assets/shows/gala-3.webp" aria-label="Xem ảnh lớn: DJ cười sau bàn DJ"><img src="assets/shows/gala-3-sm.webp" width="656" height="800" loading="lazy" alt="DJ cười sau bàn DJ"></button>
         </div>
       </article>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="videos" id="videos" aria-labelledby="videos-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Video</p>
+          <h2 id="videos-title" class="h2">Nghe thử <em>một set</em></h2>
+          <p class="note">Bấm vào video để xem, có âm thanh. Trên điện thoại, vuốt ngang để xem thêm video.</p>
+        </div>
+        <div class="vid-grid">
+        <figure class="vid vid-feature reveal">
+          <div class="vid-frame">
+            <video controls playsinline preload="none" poster="assets/videos/vutm-recap.webp" width="960" height="1080" aria-label="Recap concert VUTM: sân khấu LED, khán giả giơ gậy cổ vũ">
+              <source src="assets/videos/vutm-recap.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="vid-tag">Concert sinh viên · 3:14</span><span class="vid-title">VUTM DJ Show — recap</span></figcaption>
+        </figure>
+        <div class="vid-more" tabindex="0" aria-label="Các video khác — vuốt ngang để xem thêm">
+          <figure class="vid">
+          <div class="vid-frame">
+            <video controls playsinline preload="none" poster="assets/videos/summer-set.webp" width="1280" height="720" aria-label="DJ chơi nhạc, học sinh nhảy trước phông nền Vinser’s Summer">
+              <source src="assets/videos/summer-set.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="vid-tag">Tiệc hè trường học · 4:34</span><span class="vid-title">Vinser’s Summer</span></figcaption>
+          </figure>
+          <figure class="vid">
+          <div class="vid-frame">
+            <video controls playsinline preload="none" poster="assets/videos/google-indoor.webp" width="1280" height="720" aria-label="DJ chơi nhạc trước phông nền Google Team Building">
+              <source src="assets/videos/google-indoor.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="vid-tag">Team building · 4:43</span><span class="vid-title">Google — set trong hội trường</span></figcaption>
+          </figure>
+          <figure class="vid">
+          <div class="vid-frame">
+            <video controls playsinline preload="none" poster="assets/videos/google-sunset.webp" width="1280" height="720" aria-label="DJ chơi nhạc ngoài trời lúc hoàng hôn">
+              <source src="assets/videos/google-sunset.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="vid-tag">Team building · 1:09</span><span class="vid-title">Google — set hoàng hôn</span></figcaption>
+          </figure>
+          <figure class="vid">
+          <div class="vid-frame">
+            <video controls playsinline preload="none" poster="assets/videos/club-set.webp" width="1280" height="720" aria-label="DJ chơi nhạc ở club, khách nhảy sát bàn DJ">
+              <source src="assets/videos/club-set.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="vid-tag">Club · 1:22</span><span class="vid-title">Set ở club</span></figcaption>
+          </figure>
+        </div>
+        </div>
+      </div>
     </section>
 
     <!-- SERVICES -->

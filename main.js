@@ -10,7 +10,17 @@ function setPlaying(playing) {
   toggle.setAttribute("aria-pressed", String(!playing));
   label.textContent = playing ? "Tạm dừng video" : "Phát video";
 }
-if (reduceMotion.matches) {
+/* điện thoại: dùng video dọc nhẹ (~9 MB) thay bản máy tính (~34 MB) */
+const isPhone = window.matchMedia("(max-width: 767px)").matches;
+if (isPhone) {
+  video.poster = video.dataset.posterM;
+  video.src = "assets/hero-720.mp4";
+}
+/* mạng yếu hoặc bật Tiết kiệm dữ liệu: chỉ hiện ảnh, không tự phát video */
+const conn = navigator.connection || {};
+const slowNet = conn.saveData || /(^|-)2g|3g/.test(conn.effectiveType || "");
+if (reduceMotion.matches || slowNet) {
+  video.preload = "none";
   setPlaying(false);
 } else {
   video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
@@ -19,6 +29,19 @@ toggle.addEventListener("click", () => {
   if (video.paused) { video.play().then(() => setPlaying(true)).catch(() => {}); }
   else { video.pause(); setPlaying(false); }
 });
+
+/* Menu trên điện thoại */
+const menuBtn = document.querySelector(".menu-btn");
+const siteNav = document.getElementById("site-nav");
+function setMenu(open) {
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.textContent = open ? "Đóng" : "Menu";
+  siteNav.classList.toggle("is-open", open);
+  if (open) header.classList.add("is-solid"); else onScroll();
+}
+menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+siteNav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && siteNav.classList.contains("is-open")) { setMenu(false); menuBtn.focus(); } });
 
 /* Header đặc lại khi cuộn khỏi hero */
 const header = document.querySelector(".site-header");
@@ -54,6 +77,10 @@ document.addEventListener("click", e => {
   btn.focus();
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+/* Video: chỉ phát một video một lúc */
+const vids = [...document.querySelectorAll(".vid video")];
+vids.forEach(v => v.addEventListener("play", () => vids.forEach(o => { if (o !== v) o.pause(); })));
 
 /* Hiện nội dung theo nhịp khi cuộn */
 const items = document.querySelectorAll(".reveal");
